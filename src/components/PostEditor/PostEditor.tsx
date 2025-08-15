@@ -1,4 +1,4 @@
-import Block from "../common/Block";
+import Block from "../Block";
 import BottomToolbar from "./BottomToolbar";
 import FormattingToolbar from "./FormattingToolbar";
 import InputArea from "./InputArea";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import EditorButton from "../../common/Button";
+import EditorButton from "../../Button";
 import Smile from "./assets/smile.svg?react";
 
 const InputArea = () => {

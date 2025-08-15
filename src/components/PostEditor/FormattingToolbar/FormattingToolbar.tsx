@@ -1,4 +1,4 @@
-import EditorButton from "../../common/Button";
+import EditorButton from "../../Button";
 import Seperator from "./Seperator";
 import ChevronDown from "./assets/chevron-down.svg?react";
 import DotList from "./assets/list-with-dots.svg?react";

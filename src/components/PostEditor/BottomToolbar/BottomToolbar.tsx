@@ -1,4 +1,4 @@
-import EditorButton from "../../common/Button";
+import EditorButton from "../../Button";
 import Plus from "./assets/Plus.svg?react";
 import Mic from "./assets/mic.svg?react";
 import VideoCamera from "./assets/video-camera.svg?react";
