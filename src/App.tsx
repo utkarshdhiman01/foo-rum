@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router";
 import Feed from "./pages/Feed";
 import Input from "./components/Input";
 import SignIn from "./containers/SignIn";
+import SignUp from "./containers/SignUp";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         path="/"
         element={
           <div className="p-40">
-            <SignIn />
+            <SignUp />
           </div>
         }
       />
