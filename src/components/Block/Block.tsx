@@ -3,9 +3,14 @@ interface BlockProps extends React.HTMLAttributes<HTMLDivElement> {
   actions?: React.ReactNode;
 }
 
-const Block: React.FC<BlockProps> = ({ children, actions, ...props }) => {
+const Block: React.FC<BlockProps> = ({
+  children,
+  actions,
+  className,
+  ...props
+}) => {
   return (
-    <div className="bg-stone-100 p-2 rounded-3xl" {...props}>
+    <div {...props} className={"bg-stone-100 p-2 rounded-3xl " + className}>
       <div className="border border-stone-300 bg-white rounded-2xl shadow-sm overflow-hidden">
         {children}
       </div>
