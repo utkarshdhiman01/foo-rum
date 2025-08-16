@@ -1,14 +1,41 @@
+import { useState } from "react";
 import Block from "../Block";
 import BottomToolbar from "./BottomToolbar";
 import FormattingToolbar from "./FormattingToolbar";
 import InputArea from "./InputArea";
+import { dateGenerator } from "../../containers/Feed/dateGenerator";
+import { getRandomEmoji } from "../Post/mockEmoji";
+import type { PostType } from "./PostType";
 
-const PostEditor = () => {
+const PostEditor = ({
+  onComplete: handleComplete,
+}: {
+  onComplete: (payload: PostType) => void;
+}) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSave = () => {
+    if (inputValue.trim() === "") {
+      alert("Post content not provided");
+      return;
+    }
+    const payload: PostType = {
+      id: Date.now(),
+      content: inputValue.trim(),
+      timestamp: new Date().toISOString(),
+      author: { name: "You", imageUrl: "https://picsum.photos/48" },
+      emoji: getRandomEmoji(),
+    };
+
+    handleComplete(payload);
+    setInputValue("");
+  };
+
   return (
     <Block>
       <FormattingToolbar />
-      <InputArea />
-      <BottomToolbar />
+      <InputArea value={inputValue} onChange={setInputValue} />
+      <BottomToolbar onSave={handleSave} />
     </Block>
   );
 };

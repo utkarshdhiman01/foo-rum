@@ -5,15 +5,7 @@ import Heart from "./heart.svg?react";
 import Share from "./share.svg?react";
 import Comment from "./comment.svg?react";
 import { formatTimestamp } from "./formatTimestamp";
-
-interface PostProps {
-  author: string;
-  avatar?: string;
-  timestamp: string;
-  content: string;
-  imageUrl: string;
-  emoji: string;
-}
+import type { PostType } from "../PostEditor/PostType";
 
 const actions = (
   <div className="flex gap-2">
@@ -38,20 +30,22 @@ const actions = (
   </div>
 );
 
-const Post = ({ author, timestamp, content, imageUrl, emoji }: PostProps) => {
+interface PostProps extends Omit<PostType, "id"> {}
+
+const Post: React.FC<PostProps> = ({ author, timestamp, content, emoji }) => {
   return (
     <Block actions={actions}>
       <div className="p-2">
         <div className="flex items-center mb-2">
           <div className="flex gap-2">
             <Image
-              src={imageUrl}
+              src={author?.imageUrl}
               height={48}
               width={48}
               className="rounded-xl"
             />
             <div className="py-1">
-              <h3 className="font-semibold text-sm">{author}</h3>
+              <h3 className="font-semibold text-sm">{author?.name}</h3>
               <p className="text-stone-400 text-xs">
                 {formatTimestamp(timestamp)}
               </p>
