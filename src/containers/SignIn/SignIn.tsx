@@ -4,12 +4,51 @@ import Input from "../../components/Input";
 import SignInIcon from "./sign-in.svg?react";
 
 const SignIn: React.FC = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({
+    username: "",
+    password: "",
+  });
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {
+      username: "",
+      password: "",
+    };
+
+    // Username/username validation
+    if (!username) {
+      newErrors.username = "Email/username is required";
+      isValid = false;
+    } else if (
+      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$|^[a-zA-Z0-9_-]{3,16}$/.test(
+        username
+      )
+    ) {
+      newErrors.username = "Please enter a valid email address or username";
+    }
+
+    // Password validation
+    if (!password) {
+      newErrors.password = "Password is required";
+      isValid = false;
+    } else if (password.length < 8) {
+      newErrors.password = "Password must be at least 8 characters long";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle sign in logic here
+    if (validateForm()) {
+      // TODO: Handle sign in logic here
+      console.log("form validated");
+    }
   };
 
   const actions = (
@@ -38,10 +77,13 @@ const SignIn: React.FC = () => {
         <form className="flex flex-col gap-5 mb-4" onSubmit={handleSubmit}>
           <Input
             id="username"
-            label="Email or username"
-            placeholder="Enter your email or username"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            label="Username or username"
+            placeholder="Enter your username or username"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            error={errors.username}
             required
           />
           <Input
@@ -50,7 +92,10 @@ const SignIn: React.FC = () => {
             label="Password"
             placeholder="Enter your password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            error={errors.password}
             required
           />
           <button
