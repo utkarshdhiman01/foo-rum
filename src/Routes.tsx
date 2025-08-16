@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import Feed from "./pages/Feed";
+import Feed from "./containers/Feed";
 import Layout from "./containers/Layout";
 import SignupPage from "./pages/SignUp";
 import SigninPage from "./pages/SignIn";
