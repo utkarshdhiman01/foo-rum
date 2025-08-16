@@ -1,4 +1,4 @@
-import Plus from "./assets/plus.svg?react";
+import Plus from "./assets/Plus.svg?react";
 import Mic from "./assets/mic.svg?react";
 import VideoCamera from "./assets/video-camera.svg?react";
 import Send from "./assets/send.svg?react";
