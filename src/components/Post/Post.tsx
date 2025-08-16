@@ -4,15 +4,15 @@ import Image from "../Image";
 import Heart from "./heart.svg?react";
 import Share from "./share.svg?react";
 import Comment from "./comment.svg?react";
-
-import { getRandomEmoji } from "./mockEmoji";
+import { formatTimestamp } from "./formatTimestamp";
 
 interface PostProps {
-  id: string;
   author: string;
   avatar?: string;
   timestamp: string;
   content: string;
+  imageUrl: string;
+  emoji: string;
 }
 
 const actions = (
@@ -38,21 +38,23 @@ const actions = (
   </div>
 );
 
-const Post = ({ author, timestamp, content }: PostProps) => {
+const Post = ({ author, timestamp, content, imageUrl, emoji }: PostProps) => {
   return (
     <Block actions={actions}>
       <div className="p-2">
         <div className="flex items-center mb-2">
           <div className="flex gap-2">
             <Image
-              src="https://picsum.photos/48"
+              src={imageUrl}
               height={48}
               width={48}
               className="rounded-xl"
             />
             <div className="py-1">
               <h3 className="font-semibold text-sm">{author}</h3>
-              <p className="text-stone-400 text-xs">{timestamp}</p>
+              <p className="text-stone-400 text-xs">
+                {formatTimestamp(timestamp)}
+              </p>
             </div>
           </div>
         </div>
@@ -60,7 +62,7 @@ const Post = ({ author, timestamp, content }: PostProps) => {
         <div className="flex gap-2 mb-2">
           <div className="p-1">
             <div className="bg-stone-100 rounded-full p-2 self-start w-10 h-10 flex items-center justify-center aspect-square">
-              {getRandomEmoji()}
+              {emoji}
             </div>
           </div>
           <p className="leading-relaxed">{content}</p>
