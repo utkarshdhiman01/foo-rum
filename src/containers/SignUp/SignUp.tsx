@@ -16,7 +16,7 @@ const SignUp: React.FC = () => {
   const actions = (
     <div className="text-stone-500 p-2 text-sm text-center">
       Already have an account?{" "}
-      <a className="text-indigo-500 hover:text-indigo-600" href="/signup">
+      <a className="text-indigo-500 hover:text-indigo-600" href="/signin">
         Sign In
       </a>
     </div>
