@@ -1,4 +1,3 @@
-import EditorButton from "../../Button";
 import Seperator from "./Seperator";
 import ChevronDown from "./assets/chevron-down.svg?react";
 import DotList from "./assets/list-with-dots.svg?react";
@@ -9,6 +8,7 @@ import Bold from "./assets/Bold.svg?react";
 import Underline from "./assets/Underline.svg?react";
 import Italic from "./assets/Italic.svg?react";
 import Bin from "./assets/bin.svg?react";
+import ButtonWithAuth from "../../../containers/ButtonWithAuth";
 
 const FormattingToolbar = () => {
   return (
@@ -16,40 +16,40 @@ const FormattingToolbar = () => {
       {/* Left side buttons */}
       <div className="flex items-center space-x-2 bg-stone-100 rounded-xl p-1.5 gap-1">
         {/* this is not interactive so keeping it as button instead of dropdown for simplicity */}
-        <EditorButton variant="active" rightIcon={<ChevronDown />}>
+        <ButtonWithAuth variant="active" rightIcon={<ChevronDown />}>
           Paragraph
-        </EditorButton>
+        </ButtonWithAuth>
         <Seperator />
-        <EditorButton iconOnly variant="active" className="font-bold">
+        <ButtonWithAuth iconOnly variant="active" className="font-bold">
           <Bold />
-        </EditorButton>
-        <EditorButton iconOnly>
+        </ButtonWithAuth>
+        <ButtonWithAuth iconOnly>
           <Italic />
-        </EditorButton>
-        <EditorButton iconOnly>
+        </ButtonWithAuth>
+        <ButtonWithAuth iconOnly>
           <Underline />
-        </EditorButton>
+        </ButtonWithAuth>
         <Seperator hasDivider />
-        <EditorButton iconOnly>
+        <ButtonWithAuth iconOnly>
           <DotList />
-        </EditorButton>
-        <EditorButton iconOnly>
+        </ButtonWithAuth>
+        <ButtonWithAuth iconOnly>
           <NumberList />
-        </EditorButton>
+        </ButtonWithAuth>
         <Seperator hasDivider />
-        <EditorButton iconOnly>
+        <ButtonWithAuth iconOnly>
           <Quotes />
-        </EditorButton>
-        <EditorButton iconOnly>
+        </ButtonWithAuth>
+        <ButtonWithAuth iconOnly>
           <Code />
-        </EditorButton>
+        </ButtonWithAuth>
       </div>
 
       {/* Right side buttons */}
       <div className="flex items-center space-x-2">
-        <EditorButton variant="danger" iconOnly className="rounded-xl">
+        <ButtonWithAuth variant="danger" iconOnly className="rounded-xl">
           <Bin />
-        </EditorButton>
+        </ButtonWithAuth>
       </div>
     </div>
   );

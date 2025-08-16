@@ -1,4 +1,4 @@
-import EditorButton from "../../Button";
+import ButtonWithAuth from "../../../containers/ButtonWithAuth";
 import Smile from "./assets/smile.svg?react";
 
 interface InputAreaProps {
@@ -9,9 +9,9 @@ interface InputAreaProps {
 const InputArea = ({ value, onChange }: InputAreaProps) => {
   return (
     <div className="flex py-4 px-2">
-      <EditorButton iconOnly className="rounded-full self-start">
+      <ButtonWithAuth iconOnly className="rounded-full self-start">
         <Smile />
-      </EditorButton>
+      </ButtonWithAuth>
       <div className="flex-1">
         <textarea
           value={value}

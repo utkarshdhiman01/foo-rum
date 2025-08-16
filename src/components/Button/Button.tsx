@@ -13,10 +13,6 @@ const Button: React.FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  const fallbackHandler = () => {
-    alert("function not implemented"); // will be overridden if handler is provided through props
-  };
-
   const baseStyles =
     "inline-flex items-center justify-center gap-2 rounded-md text-sm transition-colors min-w-8 hover:bg-stone-50 cursor-pointer hover:shadow mx-0 text-base";
 
@@ -36,7 +32,6 @@ const Button: React.FC<ButtonProps> = ({
         ${variantStyles}
         ${className || ""}
       `}
-      onClick={fallbackHandler}
       {...props}
     >
       {children}

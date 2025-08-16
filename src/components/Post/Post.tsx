@@ -1,32 +1,32 @@
 import Block from "../Block";
-import Button from "../Button";
 import Image from "../Image";
 import Heart from "./heart.svg?react";
 import Share from "./share.svg?react";
 import Comment from "./comment.svg?react";
 import { formatTimestamp } from "./formatTimestamp";
 import type { PostType } from "../PostEditor/PostType";
+import ButtonWithAuth from "../../containers/ButtonWithAuth";
 
 const actions = (
   <div className="flex gap-2">
-    <Button
+    <ButtonWithAuth
       iconOnly
       className="hover:bg-transparent hover:shadow-none hover:scale-110 transition-transform ease-linear"
     >
       <Heart />
-    </Button>
-    <Button
+    </ButtonWithAuth>
+    <ButtonWithAuth
       iconOnly
       className="hover:bg-transparent hover:shadow-none hover:scale-110 transition-transform ease-linear"
     >
       <Comment />
-    </Button>
-    <Button
+    </ButtonWithAuth>
+    <ButtonWithAuth
       iconOnly
       className="hover:bg-transparent hover:shadow-none hover:scale-110 transition-transform ease-linear"
     >
       <Share />
-    </Button>
+    </ButtonWithAuth>
   </div>
 );
 
