@@ -3,7 +3,6 @@ import Block from "../Block";
 import BottomToolbar from "./BottomToolbar";
 import FormattingToolbar from "./FormattingToolbar";
 import InputArea from "./InputArea";
-import { dateGenerator } from "../../containers/Feed/dateGenerator";
 import { getRandomEmoji } from "../Post/mockEmoji";
 import type { PostType } from "./PostType";
 
