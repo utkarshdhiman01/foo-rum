@@ -29,6 +29,7 @@ const Image = ({
   const imageClasses = `
     ${width ? `w-[${width}px]` : "w-full"}
     ${height ? `h-[${height}px]` : "h-full"}
+    ${isLoading ? "opacity-0" : ""}
     object-cover
   `;
 
@@ -43,7 +44,9 @@ const Image = ({
         className={imageClasses}
         height={height}
         width={width}
-        onLoad={() => setIsLoading(false)}
+        onLoad={() => {
+          setIsLoading(false);
+        }}
       />
     </div>
   );
