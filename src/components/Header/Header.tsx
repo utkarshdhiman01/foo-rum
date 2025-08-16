@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router";
-import Mouse from "./mouse.svg?react";
-import SignInIcon from "./sign-in.svg?react";
-import type { User } from "../../store/Auth";
+import Mouse from "./assets/mouse.svg?react";
+import SignInIcon from "./assets/sign-in.svg?react";
 import Button from "../Button";
+import type { HeaderProps } from "./HeaderProps";
 
 const logo = (
   <div className="flex gap-2 items-center justify-center">
@@ -13,13 +13,7 @@ const logo = (
   </div>
 );
 
-const Header = ({
-  user,
-  isAuthPage,
-}: {
-  user?: User | null;
-  isAuthPage: boolean;
-}) => {
+const Header: React.FC<HeaderProps> = ({ user, isAuthPage }) => {
   const navigate = useNavigate();
 
   const navigateToLogin = () => {

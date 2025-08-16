@@ -1,7 +1,4 @@
-interface BlockProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  actions?: React.ReactNode;
-}
+import type { BlockProps } from "./BlockProps";
 
 const Block: React.FC<BlockProps> = ({
   children,

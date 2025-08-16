@@ -1,8 +1,4 @@
-// Input component with label positioned above using Tailwind CSS
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  error?: string;
-}
+import type { InputProps } from "./InputProps";
 
 const Input: React.FC<InputProps> = ({ label, error, ...props }) => {
   return (

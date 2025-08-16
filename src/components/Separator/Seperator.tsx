@@ -1,9 +1,6 @@
-// Separator component with flex properties
-interface SeparatorProps {
-  hasDivider?: boolean;
-}
+import type { SeparatorProps } from "./SeparatorProps";
 
-const Separator = ({ hasDivider = false }: SeparatorProps) => {
+const Separator: React.FC<SeparatorProps> = ({ hasDivider = false }) => {
   return (
     <div className="flex h-9 m-0">
       <div className={hasDivider ? "w-[7.5px]" : "w-2.5"}></div>

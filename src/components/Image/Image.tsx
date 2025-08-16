@@ -1,12 +1,5 @@
 import { useState } from "react";
-
-interface ImageProps {
-  src: string;
-  width?: number;
-  height?: number;
-  alt?: string;
-  className?: string;
-}
+import type { ImageProps } from "./ImageProps";
 
 const Image = ({
   src,

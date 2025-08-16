@@ -1,38 +1,29 @@
 import Block from "../Block";
 import Image from "../Image";
-import Heart from "./heart.svg?react";
-import Share from "./share.svg?react";
-import Comment from "./comment.svg?react";
+import Heart from "./assets/heart.svg?react";
+import Share from "./assets/share.svg?react";
+import Comment from "./assets/comment.svg?react";
 import { formatTimestamp } from "./formatTimestamp";
-import type { PostType } from "../PostEditor/PostType";
 import ButtonWithAuth from "../../containers/ButtonWithAuth";
-
-const actions = (
-  <div className="flex gap-2">
-    <ButtonWithAuth
-      iconOnly
-      className="hover:bg-transparent hover:shadow-none hover:scale-110 transition-transform ease-linear"
-    >
-      <Heart />
-    </ButtonWithAuth>
-    <ButtonWithAuth
-      iconOnly
-      className="hover:bg-transparent hover:shadow-none hover:scale-110 transition-transform ease-linear"
-    >
-      <Comment />
-    </ButtonWithAuth>
-    <ButtonWithAuth
-      iconOnly
-      className="hover:bg-transparent hover:shadow-none hover:scale-110 transition-transform ease-linear"
-    >
-      <Share />
-    </ButtonWithAuth>
-  </div>
-);
-
-interface PostProps extends Omit<PostType, "id"> {}
+import type { PostProps } from "./PostProps";
 
 const Post: React.FC<PostProps> = ({ author, timestamp, content, emoji }) => {
+  const actions = (
+    <div className="flex gap-2">
+      {[{ icon: Heart }, { icon: Comment }, { icon: Share }].map(
+        ({ icon: Icon }, index) => (
+          <ButtonWithAuth
+            key={index}
+            iconOnly
+            className="hover:bg-transparent hover:shadow-none hover:scale-110 transition-transform ease-linear"
+          >
+            <Icon />
+          </ButtonWithAuth>
+        )
+      )}{" "}
+    </div>
+  );
+
   return (
     <Block actions={actions}>
       <div className="p-2">
