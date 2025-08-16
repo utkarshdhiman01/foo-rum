@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router";
 import Header from "../../components/Header";
-import { useUser } from "../../store/User";
+import { useUser } from "../../store/Auth";
 
 const Layout = () => {
   const { pathname } = useLocation();

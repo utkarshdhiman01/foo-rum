@@ -3,7 +3,7 @@ import Block from "../../components/Block";
 import Input from "../../components/Input";
 import SignUpIcon from "./sign-up.svg?react";
 import { useNavigate } from "react-router";
-import { useUser } from "../../store/User";
+import { useOverlayFlow, useUser } from "../../store/Auth";
 
 const SignUp: React.FC = () => {
   const [username, setEmail] = useState("");
@@ -17,6 +17,7 @@ const SignUp: React.FC = () => {
 
   const navigate = useNavigate();
   const { user, setUser } = useUser();
+  const { overlayFlow, setOverlayFlow } = useOverlayFlow();
 
   useEffect(() => {
     if (user) {
@@ -32,10 +33,22 @@ const SignUp: React.FC = () => {
     }
   };
 
+  const handleSignUpClick: React.MouseEventHandler = (e) => {
+    e.preventDefault();
+    if (overlayFlow) {
+      setOverlayFlow("signin");
+    } else {
+      navigate("/signin");
+    }
+  };
+
   const actions = (
     <div className="text-stone-500 p-2 text-sm text-center">
       Already have an account?{" "}
-      <a className="text-indigo-500 hover:text-indigo-600" href="/signin">
+      <a
+        className="text-indigo-500 hover:text-indigo-600"
+        onClick={handleSignUpClick}
+      >
         Sign In
       </a>
     </div>

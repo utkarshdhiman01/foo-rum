@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import Button from "../Button";
 import Mouse from "./mouse.svg?react";
 import SignInIcon from "./sign-in.svg?react";
-import type { User } from "../../store/User";
+import type { User } from "../../store/Auth";
 
 const logo = (
   <div className="flex gap-2 items-center justify-center">

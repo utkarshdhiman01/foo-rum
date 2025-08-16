@@ -3,17 +3,20 @@ import Feed from "./containers/Feed";
 import Layout from "./containers/Layout";
 import SignupPage from "./pages/SignUp";
 import SigninPage from "./pages/SignIn";
+import OverlayAuth from "./pages/OverlayAuth";
 
-function App() {
+function Router() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/signin" element={<SigninPage />} />
-        <Route path="/" element={<Feed />} />
+        <Route element={<OverlayAuth />}>
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/signin" element={<SigninPage />} />
+          <Route path="/" element={<Feed />} />
+        </Route>
       </Route>
     </Routes>
   );
 }
 
-export default App;
+export default Router;
