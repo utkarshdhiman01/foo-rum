@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Block from "../../components/Block";
 import Input from "../../components/Input";
-import SignInIcon from "./sign-in.svg?react";
+import SignInIcon from "./assets/sign-in.svg?react";
 import { useOverlayFlow, useUser } from "../../store/Auth";
 import { useNavigate } from "react-router";
 
