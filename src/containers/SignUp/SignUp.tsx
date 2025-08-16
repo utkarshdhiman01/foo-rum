@@ -46,7 +46,7 @@ const SignUp: React.FC = () => {
     <div className="text-stone-500 p-2 text-sm text-center">
       Already have an account?{" "}
       <a
-        className="text-indigo-500 hover:text-indigo-600"
+        className="text-indigo-500 hover:text-indigo-600 cursor-pointer"
         onClick={handleSignUpClick}
       >
         Sign In

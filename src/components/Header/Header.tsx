@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import Mouse from "./mouse.svg?react";
 import SignInIcon from "./sign-in.svg?react";
 import type { User } from "../../store/Auth";
-import ButtonWithAuth from "../../containers/ButtonWithAuth";
+import Button from "../Button";
 
 const logo = (
   <div className="flex gap-2 items-center justify-center">
@@ -33,23 +33,19 @@ const Header = ({
     <header className="h-16 bg-white fixed top-0 left-0 right-0 flex items-center justify-between px-4 z-1000">
       {logo}
       {isAuthPage && !user && (
-        <ButtonWithAuth
-          variant="gamma"
-          className="text-sm"
-          onClick={navigateToHome}
-        >
+        <Button variant="gamma" className="text-sm" onClick={navigateToHome}>
           Back to home
-        </ButtonWithAuth>
+        </Button>
       )}{" "}
       {!isAuthPage && !user && (
-        <ButtonWithAuth
+        <Button
           variant="gamma"
           className="text-sm"
           onClick={navigateToLogin}
           rightIcon={<SignInIcon />}
         >
           Login
-        </ButtonWithAuth>
+        </Button>
       )}
       {user && (
         <div className="flex items-center gap-2">
