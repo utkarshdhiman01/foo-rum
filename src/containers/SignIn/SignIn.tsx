@@ -22,7 +22,7 @@ const SignIn: React.FC = () => {
   );
 
   return (
-    <Block className="max-w-md" actions={actions}>
+    <Block className="max-w-full w-md" actions={actions}>
       <div className="sign-in p-8">
         <div className="mb-16 text-center">
           <div className="mx-auto bg-stone-100 rounded-full p-2 w-10 h-10 flex items-center justify-center aspect-square mb-4">

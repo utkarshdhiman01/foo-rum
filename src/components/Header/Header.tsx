@@ -12,14 +12,19 @@ const logo = (
 );
 
 // Header component with logo and action button
-const Header = () => {
+const Header = ({ isAuthPage }: { isAuthPage?: boolean }) => {
   return (
     <header className="h-16 bg-white fixed top-0 left-0 right-0 flex items-center justify-between px-4">
       {logo}
-
-      <Button variant="gamma" className="text-sm" rightIcon={<SignInIcon />}>
-        Login
-      </Button>
+      {isAuthPage ? (
+        <Button variant="gamma" className="text-sm">
+          Back to home
+        </Button>
+      ) : (
+        <Button variant="gamma" className="text-sm" rightIcon={<SignInIcon />}>
+          Login
+        </Button>
+      )}
     </header>
   );
 };

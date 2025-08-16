@@ -1,24 +1,16 @@
 import { Route, Routes } from "react-router";
 import Feed from "./pages/Feed";
-import Input from "./components/Input";
-import SignIn from "./containers/SignIn";
-import SignUp from "./containers/SignUp";
-import Header from "./components/Header";
 import Layout from "./containers/Layout";
+import SignupPage from "./pages/SignUp";
+import SigninPage from "./pages/SignIn";
 
 function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route
-          path="/"
-          element={
-            <div className="p-40">
-              <SignUp />
-            </div>
-          }
-        />
-        {/* <Route path="/" element={<Feed />} /> */}
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/signin" element={<SigninPage />} />
+        <Route path="/" element={<Feed />} />
       </Route>
     </Routes>
   );
