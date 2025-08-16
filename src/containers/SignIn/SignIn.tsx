@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Block from "../../components/Block";
 import Input from "../../components/Input";
 import SignInIcon from "./sign-in.svg?react";
+import { useUser } from "../../store/User";
+import { useNavigate } from "react-router";
 
 const SignIn: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -11,43 +13,21 @@ const SignIn: React.FC = () => {
     password: "",
   });
 
-  const validateForm = () => {
-    let isValid = true;
-    const newErrors = {
-      username: "",
-      password: "",
-    };
+  const navigate = useNavigate();
+  const { user, setUser } = useUser();
 
-    // Username/username validation
-    if (!username) {
-      newErrors.username = "Email/username is required";
-      isValid = false;
-    } else if (
-      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$|^[a-zA-Z0-9_-]{3,16}$/.test(
-        username
-      )
-    ) {
-      newErrors.username = "Please enter a valid email address or username";
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+      return;
     }
-
-    // Password validation
-    if (!password) {
-      newErrors.password = "Password is required";
-      isValid = false;
-    } else if (password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters long";
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
+  }, [user]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      // TODO: Handle sign in logic here
-      console.log("form validated");
+    if (validateForm(username, password, setErrors)) {
+      setUser({ username });
+      navigate("/");
     }
   };
 
@@ -111,3 +91,41 @@ const SignIn: React.FC = () => {
 };
 
 export default SignIn;
+
+function validateForm(
+  username: string,
+  password: string,
+  setErrors: React.Dispatch<
+    React.SetStateAction<{ username: string; password: string }>
+  >
+) {
+  let isValid = true;
+  const newErrors = {
+    username: "",
+    password: "",
+  };
+
+  // Username/username validation
+  if (!username) {
+    newErrors.username = "Email/username is required";
+    isValid = false;
+  } else if (
+    !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$|^[a-zA-Z0-9_-]{3,16}$/.test(
+      username
+    )
+  ) {
+    newErrors.username = "Please enter a valid email address or username";
+  }
+
+  // Password validation
+  if (!password) {
+    newErrors.password = "Password is required";
+    isValid = false;
+  } else if (password.length < 8) {
+    newErrors.password = "Password must be at least 8 characters long";
+    isValid = false;
+  }
+
+  setErrors(newErrors);
+  return isValid;
+}
