@@ -22,7 +22,7 @@ const PostEditor = ({
       id: Date.now(),
       content: inputValue.trim(),
       timestamp: new Date().toISOString(),
-      author: { name: "You", imageUrl: "https://picsum.photos/48" },
+      author: { name: "You", imageUrl: "/you.jpg" },
       emoji: getRandomEmoji(),
     };
 
