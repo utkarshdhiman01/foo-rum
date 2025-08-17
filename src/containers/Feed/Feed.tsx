@@ -10,7 +10,7 @@ const Feed: React.FC = () => {
   const [posts, setPosts] = useState<Array<PostType>>([
     {
       id: 1,
-      author: { name: "John Doe", imageUrl: "/john.jpg" },
+      author: { name: "John Doe", imageUrl: "/john.webp" },
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis earum fuga ducimus! Ipsum provident esse aliquid, iusto velit inventore libero eaque necessitatibus odit explicabo deserunt facere modi adipisci. Facere ex quisquam similique numquam, quo saepe tempora vel.",
       timestamp: dateGenerator(),
@@ -18,7 +18,7 @@ const Feed: React.FC = () => {
     },
     {
       id: 2,
-      author: { name: "Jane Smith", imageUrl: "/jane.jpg" },
+      author: { name: "Jane Smith", imageUrl: "/jane.webp" },
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis earum fuga ducimus! Ipsum provident esse aliquid, iusto velit inventore libero eaque necessitatibus odit explicabo deserunt facere modi adipisci. Facere ex quisquam similique numquam, quo saepe tempora vel.",
       timestamp: dateGenerator(),
@@ -26,7 +26,7 @@ const Feed: React.FC = () => {
     },
     {
       id: 3,
-      author: { name: "Mike Johnson", imageUrl: "/mike.jpg" },
+      author: { name: "Mike Johnson", imageUrl: "/mike.webp" },
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis earum fuga ducimus! Ipsum provident esse aliquid, iusto velit inventore libero eaque necessitatibus odit explicabo deserunt facere modi adipisci. Facere ex quisquam similique numquam, quo saepe tempora vel.",
       timestamp: dateGenerator(),
@@ -34,7 +34,7 @@ const Feed: React.FC = () => {
     },
     {
       id: 4,
-      author: { name: "Sarah Williams", imageUrl: "/sarah.jpg" },
+      author: { name: "Sarah Williams", imageUrl: "/sarah.webp" },
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis earum fuga ducimus! Ipsum provident esse aliquid, iusto velit inventore libero eaque necessitatibus odit explicabo deserunt facere modi adipisci. Facere ex quisquam similique numquam, quo saepe tempora vel.",
       timestamp: dateGenerator(),
@@ -42,7 +42,7 @@ const Feed: React.FC = () => {
     },
     {
       id: 5,
-      author: { name: "David Brown", imageUrl: "/david.jpg" },
+      author: { name: "David Brown", imageUrl: "/david.webp" },
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis earum fuga ducimus! Ipsum provident esse aliquid, iusto velit inventore libero eaque necessitatibus odit explicabo deserunt facere modi adipisci. Facere ex quisquam similique numquam, quo saepe tempora vel.",
       timestamp: dateGenerator(),
