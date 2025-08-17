@@ -8,6 +8,7 @@ import Bold from "./assets/bold.svg?react";
 import Underline from "./assets/underline.svg?react";
 import Italic from "./assets/italic.svg?react";
 import Bin from "./assets/bin.svg?react";
+import More from "./assets/more.svg?react";
 import ButtonWithAuth from "../../../containers/ButtonWithAuth";
 import type { ButtonProps } from "../../Button/ButtonProps";
 import type { JSX } from "react";
@@ -86,7 +87,10 @@ const FormattingToolbar = () => {
   return (
     <div className="flex items-center justify-between p-2 gap-2">
       {/* Left side buttons */}
-      <div className="flex items-center space-x-2 bg-stone-100 rounded-xl p-1.5 gap-1">
+      <ButtonWithAuth iconOnly className="rounded-xl sm:hidden inline-block">
+        <More />
+      </ButtonWithAuth>
+      <div className="hidden sm:flex items-center space-x-2 bg-stone-100 rounded-xl p-1.5 gap-1">
         {/* this is not interactive so keeping it as button instead of dropdown for simplicity */}
         {leftButtons.map((item, index) =>
           item.isSeperator ? (

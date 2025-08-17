@@ -12,7 +12,7 @@ const OverlayAuth: React.FC = () => {
   if (overlayFlow && !isAuthPage)
     return (
       <>
-        <div className="fixed inset-0 w-full h-full bg-black/50 flex justify-center items-center z-[1000]">
+        <div className="fixed inset-0 w-full h-full bg-black/50 flex justify-center items-center z-[1000] p-4">
           {overlayFlow === "signin" && <SignIn />}
           {overlayFlow === "signup" && <SignUp />}
         </div>
